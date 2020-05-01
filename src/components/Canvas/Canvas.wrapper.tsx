@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Draggable from 'react-draggable'
 import { IConfig, IOnCanvasClick, IOnCanvasDrop, IOnDeleteKey, IOnDragCanvas, IOnDragCanvasStop, REACT_FLOW_CHART } from '../../'
 import CanvasContext from './CanvasContext'
 import { ICanvasInnerDefaultProps } from './CanvasInner.default'
@@ -68,8 +67,6 @@ export class CanvasWrapper extends React.Component<ICanvasWrapperProps, IState> 
       ComponentInner,
       ComponentOuter,
       position,
-      onDragCanvas,
-      onDragCanvasStop,
       children,
       onCanvasClick,
       onDeleteKey,
@@ -82,13 +79,6 @@ export class CanvasWrapper extends React.Component<ICanvasWrapperProps, IState> 
     return (
       <CanvasContext.Provider value={{ offsetX: this.state.offsetX, offsetY: this.state.offsetY }}>
         <ComponentOuter config={config} ref={this.ref}>
-          <Draggable
-            axis="both"
-            position={position}
-            grid={[1, 1]}
-            onDrag={(event, data) => onDragCanvas({ config, event, data })}
-            onStop={(event, data) => onDragCanvasStop({ config, event, data })}
-          >
             <ComponentInner
               config={config}
               children={children}
@@ -111,7 +101,6 @@ export class CanvasWrapper extends React.Component<ICanvasWrapperProps, IState> 
               } }
               onDragOver={(e) => e.preventDefault()}
             />
-          </Draggable>
         </ComponentOuter>
       </CanvasContext.Provider>
     )

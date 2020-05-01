@@ -173,6 +173,7 @@ export const NodeWrapper = ({
       onDrag={onDrag}
       onStop={onStop}
       disabled={config.readonly}
+      scale={config.scale}
     >
       <Component
         config={config}

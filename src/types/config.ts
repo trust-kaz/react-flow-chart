@@ -9,4 +9,5 @@ export interface IConfig {
   validateLink?: (props: IOnLinkCompleteInput & { chart: IChart }) => boolean
   nodeProps?: any
   [key: string]: any
+  scale?: number
 }
