@@ -10,4 +10,5 @@ export interface IConfig {
   nodeProps?: any
   [key: string]: any
   scale?: number
+  portsDisabled?: boolean
 }

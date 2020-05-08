@@ -153,8 +153,8 @@ export const NodeWrapper = ({
             port={node.ports[portId]}
             Component={Port}
             onPortPositionChange={onPortPositionChange}
-            onLinkStart={config.readonly ? noop : onLinkStart}
-            onLinkMove={config.readonly ? noop : onLinkMove}
+            onLinkStart={(config.readonly || config.portsDisabled) ? noop : onLinkStart}
+            onLinkMove={(config.readonly || config.portsDisabled) ? noop : onLinkMove}
             onLinkComplete={onLinkComplete}
             onLinkCancel={onLinkCancel}
           />
